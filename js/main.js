@@ -8,6 +8,7 @@ const PLAYER_MOVE = ['x', 'O']
 // the location of the player's move
 let currentCell, usedCell, currentPlayer 
 
+
 //currentPlayer is either 0 or 1 and rotates with function
 
 // showing either an x or an o on click
@@ -17,17 +18,11 @@ let currentCell, usedCell, currentPlayer
 /*----- cached element references -----*/
 const gameboard = document.getElementById('gameBoard')
 
-
-
 /*----- event listeners -----*/
 
 //listen for a click on each cell
 gameboard.addEventListener('click', handleClick) 
 
-// determine what cell got clicked
-function handleClick(evt) {
-    console.log(evt.target)
-}
 
 
 /*----- functions -----*/
@@ -35,6 +30,15 @@ function handleClick(evt) {
 function initGame() {
     let currentPlayer = 0
 }
+
+
+// determine what cell got clicked
+function handleClick(evt) {
+    //console.log(evt.target)
+    //if (cell is free) {update with current player}
+    //else (alert: already been played)
+}
+
 
 // determine currentPlayer 0 or 1
 function determinePlayer() {
