@@ -16,12 +16,12 @@ let board, currentPlayer
 
 
 /*----- cached element references -----*/
-const gameboard = document.getElementById('gameBoard')
+const gameboardEl = document.getElementById('gameBoard')
 
 
 /*----- event listeners -----*/
 
-gameboard.addEventListener('click', handleClick) 
+gameboardEl.addEventListener('click', handleClick) 
  
 
 
@@ -35,8 +35,7 @@ function initGame() {
 
 // determine what cell got clicked
 function handleClick(evt) {
-    board[evt.target.id] = currentPlayer
-    //updating the DOM with PLAYER_LOGIC[currentPlayer]
+    board[evt.target.id] = PLAYER_LOGIC[currentPlayer]
     currentPlayer *= -1
     console.log(evt.target.id)
     console.log(board)
