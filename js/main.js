@@ -16,9 +16,10 @@ let board, currentPlayer
 
 
 /*----- cached element references -----*/
+//establishes grid of cells as the element gameboardEl
 const gameboardEl = document.getElementById('gameBoard')
-const squares = document.querySelectorAll('td')
-console.log(squares)
+
+
 /*----- event listeners -----*/
 
 gameboardEl.addEventListener('click', handleClick) 
@@ -29,24 +30,21 @@ gameboardEl.addEventListener('click', handleClick)
 //function starts the game
 function initGame() {
     currentPlayer = 1
-    board = [null, null, null, null, null, null, null, null, null]
-}
-//render updates the dom according to state
-function render() {
-
+    board = ['open', 'open', 'open', 'open', 'open', 'open', 'open', 'open', 'open']
 }
 
-// determine what cell got clicked
+
 function handleClick(evt) {
-    board[evt.target.id] = currentPlayer
-    evt.target.innerText = PLAYER_LOGIC[currentPlayer]
-    currentPlayer *= -1
-    render()
-    console.log(evt.target)
-    console.log(board)
-    console.log(currentPlayer)
+    if(board[evt.target.id] === 'open') {
+        board[evt.target.id] = currentPlayer
+        evt.target.innerText = PLAYER_LOGIC[currentPlayer]
+        currentPlayer *= -1
+            console.log(evt.target)
+            console.log(board)
+            console.log(currentPlayer)
+            console.log(board[evt.target.id.innerText])
+        } else {alert('cannot play here')}
     } 
-
 
 
 
