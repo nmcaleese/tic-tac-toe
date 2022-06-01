@@ -1,12 +1,12 @@
 
 /*----- constants -----*/
 
-const PLAYER_LOGIC = {
+const PLAYERS = {
     '1': 'X',
     '-1': 'O',
 }
-// console.log(PLAYER_LOGIC[1])
-// console.log(PLAYER_LOGIC[-1])
+// console.log(PLAYERS[1])
+// console.log(PLAYERS[-1])
 
 
 
@@ -19,34 +19,41 @@ let board, currentPlayer
 //establishes grid of cells as the element gameboardEl
 const gameboardEl = document.getElementById('gameBoard')
 
+//establish the button element as a resetEl
+const resetEl = document.querySelector('button')
 
 /*----- event listeners -----*/
 
 gameboardEl.addEventListener('click', handleClick) 
  
-
+resetEl.addEventListener('click', resetGame)
 
 /*----- functions -----*/
 //function starts the game
 function initGame() {
     currentPlayer = 1
-    board = ['open', 'open', 'open', 'open', 'open', 'open', 'open', 'open', 'open']
+    board = [null, null, null, null, null, null, null, null, null]
 }
 
 
 function handleClick(evt) {
-    if(board[evt.target.id] === 'open') {
+    if(board[evt.target.id] === null) {
         board[evt.target.id] = currentPlayer
-        evt.target.innerText = PLAYER_LOGIC[currentPlayer]
+        evt.target.innerText = PLAYERS[currentPlayer]
         currentPlayer *= -1
-            console.log(evt.target)
-            console.log(board)
-            console.log(currentPlayer)
-            console.log(board[evt.target.id.innerText])
         } else {alert('cannot play here')}
     } 
 
+    // console.log(board)
+    // console.log(currentPlayer)
+    // console.log(board[evt.target.id.innerText])
 
+//reset game when button is pushed
+function resetGame() {
+    initGame();
+    gameboardEl.innertext = board
+}
+    
 
 
 initGame()
