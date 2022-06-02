@@ -38,10 +38,8 @@ resetEl.addEventListener('click', initGame)
 function initGame() {
     currentPlayer = 1
     board = ['', '', '', '', '', '', '', '', '']
-    cellsEl.forEach(function(cell) {
-        cell.innerText = ''
-    })
-}
+    render() 
+    }  
  
 function handleClick(evt) {
     if(board[evt.target.id] === '') {
@@ -55,3 +53,8 @@ function handleClick(evt) {
 
 
 initGame()
+function render(){
+    cellsEl.forEach(function(cell, idx) {
+        cell.innerText = board[idx]
+     })
+}
