@@ -10,19 +10,20 @@ const PLAYERS = {
 
 /*----- app's state (variables) -----*/
 
+// set variables
 let board, currentPlayer 
 
 
-
 /*----- cached element references -----*/
-//establishes grid of cells as the element gameboardEl
-const gameboardEl = document.getElementById('gameBoard')
 
-//establish the button element as a resetEl
-const resetEl = document.querySelector('button')
+//establishes table as the element gameboardEl
+const gameboardEl = document.getElementById('gameBoard')
 
 //establish td's as cellsEl
 const cellsEl = document.querySelectorAll('td')
+
+//establish the button element as a resetEl
+const resetEl = document.querySelector('button')
 
 
 /*----- event listeners -----*/
@@ -30,7 +31,6 @@ const cellsEl = document.querySelectorAll('td')
 gameboardEl.addEventListener('click', handleClick) 
  
 resetEl.addEventListener('click', initGame)
-
 
 
 /*----- functions -----*/
@@ -43,14 +43,13 @@ function initGame() {
     })
 }
  
-
 function handleClick(evt) {
     if(board[evt.target.id] === '') {
         board[evt.target.id] = currentPlayer
         evt.target.innerText = PLAYERS[currentPlayer]
         currentPlayer *= -1
         } else if (board[evt.target.id] === 1 ) {
-            alert('I said, \"MY SPACE!!!')
+            alert('I said, MY SPACE!!!')
         } else {alert('Try it again, see what happens!')}
     } 
 
