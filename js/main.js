@@ -1,20 +1,16 @@
 
 /*----- constants -----*/
+// set constants: players 1 and 2
 
 const PLAYERS = {
-    '1': 'X',
-    '-1': 'O',
+    '1': 'My Space, Bitch!',
+    '-1': 'Fuck You!',
 }
-// console.log(PLAYERS[1])
-// console.log(PLAYERS[-1])
-
-
 
 
 /*----- app's state (variables) -----*/
 
 let board, currentPlayer 
-
 
 
 
@@ -27,7 +23,6 @@ const resetEl = document.querySelector('button')
 
 //establish td's as cellsEl
 const cellsEl = document.querySelectorAll('td')
-
 
 
 /*----- event listeners -----*/
@@ -45,7 +40,6 @@ function initGame() {
     board = ['', '', '', '', '', '', '', '', '']
     cellsEl.forEach(function(cell) {
         cell.innerText = ''
-        console.log(cell)
     })
 }
  
@@ -55,7 +49,9 @@ function handleClick(evt) {
         board[evt.target.id] = currentPlayer
         evt.target.innerText = PLAYERS[currentPlayer]
         currentPlayer *= -1
-        } else {alert('cannot play here')}
+        } else if (board[evt.target.id] === 1 ) {
+            alert('I said, \"MY SPACE!!!')
+        } else {alert('Try it again, see what happens!')}
     } 
 
 
