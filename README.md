@@ -1,1 +1,1 @@
-# A super unessissarily aggressive game of tic-tac-toe
+# A Super Unnecessarily Aggressive Game of Tic-Tac-Toe
